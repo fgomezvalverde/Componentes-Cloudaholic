@@ -1,0 +1,60 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.Utiles.DatabaseQueue;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class MyServletContextListener implements ServletContextListener, Runnable{
+
+    private DatabaseQueue myThread = null;
+    private int SLEEP_THREAD = 50000;
+	private static String[] team = new String[]{"DOTEROS"};
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+    	
+        /*if ((myThread == null) || (!myThread.isAlive())) {
+            myThread = new DatabaseQueue();
+            myThread.start();
+        }*/
+    	new Thread(this).start();
+    }
+    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce){
+        try {
+            myThread.interrupt();
+        } catch (Exception ex) {
+        	
+        }
+    }
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		Queue queue = QueueFactory.getDefaultQueue();
+		for(;;)
+		{
+			
+			for(String temp : team)
+			{
+				System.out.println("HOLA\n");
+				queue.add(TaskOptions.Builder.withUrl("/workers/WorkerDatabase").param("team", temp));			
+			}
+			
+			
+			try {
+				System.out.println("Durmiendo thread");
+				Thread.sleep(SLEEP_THREAD);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+}

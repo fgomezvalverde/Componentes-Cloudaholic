@@ -1,0 +1,58 @@
+package com.CloudaHolic;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.*;
+
+import com.Utiles.Doc;
+import com.google.gdata.util.ServiceException;
+import com.Model.*;
+
+
+@SuppressWarnings("serial")
+public class CloudaHolicWorkerReceiver extends HttpServlet {
+	
+	private static String USERNAME="fafa.gttm91@gmail.com";
+	private static String PASSWORD="gomezvalverde5";
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String json_team = req.getParameter("json");
+		//Team team = (Team)JSONValue.parse(json_team);
+		
+		//Manager.GetInstance().AddData(team.NAME,json_team );
+		List<User> users = new ArrayList();
+		users.add(new User("Fabian",5,33,22,12,"12/05/2014","Mayo",5));
+		users.add(new User("Irene",22,1,72,2,"04/09/2019","Junio",5));
+		Doc.CopiarTabla(new Team());
+
+			
+		
+		resp.getWriter().println(asd.CrearSpreadSheet());
+		/*
+		try{			
+			SpreadsheetService  service = new SpreadsheetService ("MyDocumentsListIntegration-v1");
+		    service.setProtocolVersion(DocsService.Versions.V3);
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    
+		    // Define the URL to request.  This should never change.
+		    URL SPREADSHEET_FEED_URL = new URL(
+		    		"https://docs.google.com/feeds/default/private/full/");
+
+		    String title = new Date().toString();
+		    WorksheetEntry  newEntry = new WorksheetEntry ();
+		    newEntry.setTitle(new PlainTextConstruct(title));
+		    
+		    WorksheetEntry spreadSheet =service.insert(SPREADSHEET_FEED_URL, newEntry);
+		    
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}*/
+		
+	}
+
+	
+}

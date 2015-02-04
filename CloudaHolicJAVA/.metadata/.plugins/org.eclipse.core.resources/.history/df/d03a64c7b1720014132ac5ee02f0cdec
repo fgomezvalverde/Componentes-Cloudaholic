@@ -1,0 +1,48 @@
+package com.CloudaHolic;
+
+import java.io.IOException;
+import java.util.Iterator;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import com.Database.Manager;
+import com.Model.User;
+
+public class CloudaHolicWorkerDatabase extends HttpServlet {
+	
+	
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		JSONParser parser = new JSONParser();
+		
+		String team_name = req.getParameter("team");
+		System.out.println("\nllegando Database"+ team_name+"\n");
+		
+		String data = Manager.GetInstance().GetData(team_name);
+		
+		Object obj;
+		try {
+			obj = parser.parse(data);
+			JSONObject jsonObject = (JSONObject) obj;
+			
+			JSONArray msg = (JSONArray) jsonObject.get("USERS");
+			Iterator<User> iterator = msg.iterator();
+			System.out.println(iterator.next().NAME);
+		} catch (ParseException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+}

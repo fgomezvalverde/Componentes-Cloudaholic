@@ -1,0 +1,25 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class CloudaHolicMain extends HttpServlet implements Runnable
+{
+	Thread searcher;
+    public void init() throws ServletException
+    {
+    	searcher = new Thread(this);
+        searcher.setPriority(Thread.MIN_PRIORITY);
+        searcher.start();
+    }
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+    }
+    }
+    public void run() {
+        
+      }
+    public void destroy() {
+        searcher.stop();
+      }
+}

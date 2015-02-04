@@ -1,0 +1,6 @@
+E:\Proyectos\C#\CloudaHolic\Model\bin\Debug\Model.dll
+E:\Proyectos\C#\CloudaHolic\Model\bin\Debug\Model.pdb
+E:\Proyectos\C#\CloudaHolic\Model\bin\Debug\ServiceStack.Text.dll
+E:\Proyectos\C#\CloudaHolic\Model\bin\Debug\ServiceStack.Text.xml
+E:\Proyectos\C#\CloudaHolic\Model\obj\Debug\Model.dll
+E:\Proyectos\C#\CloudaHolic\Model\obj\Debug\Model.pdb

@@ -1,0 +1,20 @@
+package com.Database;
+
+public class Connector {
+
+	private String HOST = "pub-redis-12847.us-east-1-2.5.ec2.garantiadata.com";
+	private int PORT = 12847;
+	private static Connector INSTANCE;
+	
+	private Connector()
+	{}
+	
+	public static Connector GetInstance()
+	{
+		if(INSTANCE==null)
+		{
+			INSTANCE = new Connector();
+		}
+		return INSTANCE;
+	}
+}

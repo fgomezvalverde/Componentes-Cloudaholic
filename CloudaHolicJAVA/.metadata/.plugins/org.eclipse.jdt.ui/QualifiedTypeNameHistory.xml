@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.google.appengine.api.taskqueue.QueueFactory"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.taskqueue.TaskOptions.Builder"/>
+<fullyQualifiedTypeName name="com.google.appengine.repackaged.com.google.api.client.util.DateTime"/>
+<fullyQualifiedTypeName name="com.sun.istack.internal.logging.Logger"/>
+<fullyQualifiedTypeName name="com.google.gdata.data.docs.DocumentListEntry"/>
+<fullyQualifiedTypeName name="com.google.gdata.client.docs.DocsService"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.google.gdata.data.spreadsheet.ListEntry"/>
+<fullyQualifiedTypeName name="com.google.gdata.data.spreadsheet.ListFeed"/>
+<fullyQualifiedTypeName name="com.google.gdata.data.spreadsheet.CellFeed"/>
+<fullyQualifiedTypeName name="com.google.gdata.data.spreadsheet.CellEntry"/>
+<fullyQualifiedTypeName name="com.Model.Team"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.urlfetch.URLFetchServicePb.URLFetchService"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.urlfetch.URLFetchServiceFactory"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.urlfetch.URLFetchService"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.urlfetch.HTTPRequest"/>
+<fullyQualifiedTypeName name="com.google.appengine.api.urlfetch.HTTPResponse"/>
+<fullyQualifiedTypeName name="com.Database.Manager"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="com.Model.User"/>
+<fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
+<fullyQualifiedTypeName name="com.Utiles.Doc"/>
+</qualifiedTypeNameHistroy>

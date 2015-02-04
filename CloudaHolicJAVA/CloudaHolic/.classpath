@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/jedis-2.6.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/logback-ext-loggly-0.1.2.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-client-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-docs-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-spreadsheet-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-core-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-client-meta-1.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-docs-meta-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-spreadsheet-meta-3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/guava-11.0.2.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/jsr305.jar"/>
+	<classpathentry kind="lib" path="E:/Proyectos/Eclipse Worstation/CloudaHolic/CloudaHolic/war/WEB-INF/lib/gdata-media-1.0.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

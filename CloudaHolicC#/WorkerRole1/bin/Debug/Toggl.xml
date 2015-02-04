@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Toggl</name>
+    </assembly>
+    <members>
+        <member name="T:Toggl.UserAdd">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#users
+            </summary>
+        </member>
+        <member name="T:Toggl.UserExtended">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#users
+            </summary>
+        </member>
+        <member name="T:Toggl.User">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#users
+            </summary>
+        </member>
+        <member name="T:Toggl.UserEdit">
+            <summary>
+            
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#update-user-data
+            </summary>
+        </member>
+        <member name="T:Toggl.Client">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md#clients
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.Id">
+            <summary>
+            id : The client id
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.Name">
+            <summary>
+            name: The name of the client (string, required, unique in workspace)
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.WorkspaceId">
+            <summary>
+            wid: workspace ID, where the client will be used (integer, required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.Notes">
+            <summary>
+            notes: Notes for the client (string, not required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.HourlyRate">
+            <summary>
+            hrate: The hourly rate for this client (float, not required, available only for pro workspaces)
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.Currency">
+            <summary>
+            cur: The name of the client's currency (string, not required, available only for pro workspaces)
+            </summary>
+        </member>
+        <member name="P:Toggl.Client.UpdatedOn">
+            <summary>
+            at: timestamp that is sent in the response, indicates the time client was last updated
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se omite para el miembro "T:Toggl.Session" -->
+        <member name="T:Toggl.Project">
+             <summary>
+             
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/projects.md#projects
+             </summary>
+        </member>
+        <member name="P:Toggl.Project.Id">
+            <summary>
+            id: The id of the project
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.Name">
+            <summary>
+            name: The name of the project (string, required, unique for client and workspace)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.WorkspaceId">
+            <summary>
+            wid: workspace ID, where the project will be saved (integer, required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.ClientId">
+            <summary>
+             cid: client ID(integer, not required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.IsActive">
+            <summary>
+            active: whether the project is archived or not (boolean, by default true)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.IsPrivate">
+            <summary>
+            is_private: whether project is accessible for only project users or for all workspace users (boolean, default true)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.IsTemplateable">
+            <summary>
+            template: whether the project can be used as a template (boolean, not required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.TemplateId">
+            <summary>
+            template_id: id of the template project used on current project's creation
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.IsBillable">
+            <summary>
+            billable: whether the project is billable or not (boolean, default true, available only for pro workspaces)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.IsAutoEstimates">
+            <summary>
+            auto_estimates: whether the esitamated hours is calculated based on task esimations or is fixed manually(boolean, default false, not required, premium functionality)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.EstimatedHours">
+            <summary>
+            estimated_hours: if auto_estimates is true then the sum of task estimations is returned, otherwise user inserted hours (integer, not required, premium functionality)
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.UpdatedOn">
+            <summary>
+            at: timestamp that is sent in the response for PUT, indicates the time task was last updated
+            </summary>
+        </member>
+        <member name="P:Toggl.Project.HourlyRate">
+            <summary>
+            rate: hourly rate of the project (float, not required, premium functionality)
+            </summary>
+        </member>
+        <member name="T:Toggl.Task">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/tasks.md#tasks
+            </summary>
+        </member>
+        <member name="T:Toggl.Workspace">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#workspaces
+            </summary>
+        </member>
+        <member name="P:Toggl.Workspace.Id">
+            <summary>
+            id: The Workspace id
+            </summary>
+        </member>
+        <member name="P:Toggl.Workspace.Name">
+            <summary>
+            name: (string, required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Workspace.Ispremium">
+            <summary>
+            premium: If it's a pro workspace or not. Shows if someone is paying for the workspace or not (boolean, not required)
+            </summary>
+        </member>
+        <member name="P:Toggl.Workspace.UpdatedOn">
+            <summary>
+            at: timestamp that is sent in the response, indicates the time item was last updated
+            </summary>
+        </member>
+        <member name="M:Toggl.Interfaces.IClientService.List">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md#get-clients-visible-to-user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IClientService.Add(Toggl.Client)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md#create-a-client
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IClientService.Edit(Toggl.Client)">
+            <summary>
+            
+            https://www.toggl.com/public/api#put_clients
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IClientService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_clients
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.ClientService.List">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md#get-clients-visible-to-user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.ClientService.Add(Toggl.Client)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/clients.md#create-a-client
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.ClientService.Edit(Toggl.Client)">
+            <summary>
+            
+            https://www.toggl.com/public/api#put_clients
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.ClientService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_clients
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IProjectService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_projects
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITagService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_tags
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITaskService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_tasks
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITaskService.Add(Toggl.Task)">
+            <summary>
+            
+            https://www.toggl.com/public/api#post_tasks
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITaskService.Edit(Toggl.Task)">
+            <summary>
+            
+            https://www.toggl.com/public/api#put_tasks
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITaskService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_tasks
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.ListRecent">
+            <summary>
+            https://www.toggl.com/public/api#get_time_entries
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.List(Toggl.QueryObjects.TimeEntryParams)">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_time_entries_by_range
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.Get(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_time_entry
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.Add(Toggl.TimeEntry)">
+            <summary>
+            https://www.toggl.com/public/api#post_time_entries
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.Edit(Toggl.TimeEntry)">
+            <summary>
+            https://www.toggl.com/public/api#put_time_entries
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.ITimeEntryService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_time_entries
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Toggl.Interfaces.IUserService">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#users
+            </summary>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.GetCurrent">
+            <summary>
+            Method to get basic information about a user.
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#get-current-user-data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.GetCurrentExtended">
+            <summary>
+            Method to get basix information about a user and to get all the workspaces, clients, projects, 
+            tasks, time entries and tags which the user can see
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#get-current-user-data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.GetCurrentChanged(System.DateTime)">
+            <summary>
+            Method to get basix information about a user and to get all the workspaces, clients, projects, 
+            tasks, time entries and tags which the user can see which have changed after certain time, 
+            add since parameter to the query. 
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#get-current-user-data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.Edit(Toggl.User)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#update-user-data
+            </summary>
+            <param name="u">UserEdit</param>
+            <returns>User</returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.ResetApiToken">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#reset-api-token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.GetForWorkspace(System.Int32)">
+            <summary>
+            
+            Get list of users for a workspace
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IUserService.Add(Toggl.User)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/users.md#get-workspace-users
+            </summary>
+            <param name="u"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Toggl.Interfaces.IWorkspaceService">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#workspaces
+            </summary>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.List">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspaces
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.Users(System.Int32)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-users
+            </summary>
+            <param name="workspaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.Clients(System.Int32)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-clients
+            </summary>
+            <param name="workspaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.Projects(System.Int32)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-projects
+            </summary>
+            <param name="workspaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.Tasks(System.Int32)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-tasks
+            </summary>
+            <param name="workspaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Interfaces.IWorkspaceService.Tags(System.Int32)">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#get-workspace-tags
+            </summary>
+            <param name="workspaceId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TagService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_tags
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.ProjectService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_projects
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Toggl.Services.WorkspaceService">
+            <summary>
+            https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md#workspaces
+            </summary>
+        </member>
+        <member name="M:Toggl.Services.TaskService.List">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_tasks
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TaskService.Add(Toggl.Task)">
+            <summary>
+            
+            https://www.toggl.com/public/api#post_tasks
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TaskService.Edit(Toggl.Task)">
+            <summary>
+            
+            https://www.toggl.com/public/api#put_tasks
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TaskService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_tasks
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.ListRecent">
+            <summary>
+            https://www.toggl.com/public/api#get_time_entries
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.List(Toggl.QueryObjects.TimeEntryParams)">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_time_entries_by_range
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.Get(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#get_time_entry
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.Add(Toggl.TimeEntry)">
+            <summary>
+            https://www.toggl.com/public/api#post_time_entries
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.Edit(Toggl.TimeEntry)">
+            <summary>
+            https://www.toggl.com/public/api#put_time_entries
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Toggl.Services.TimeEntryService.Delete(System.Int32)">
+            <summary>
+            
+            https://www.toggl.com/public/api#del_time_entries
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Toggl.Toggl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.Client">
+            <summary>
+            Holds methods to access client information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.Project">
+            <summary>
+            Holds methods to access project information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.Tag">
+            <summary>
+            Holds methods to access tag information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.Task">
+            <summary>
+            Holds methods to access task information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.TimeEntry">
+            <summary>
+            Holds methods to access time entry information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.User">
+            <summary>
+            Holds methods to access user information
+            </summary>
+        </member>
+        <member name="P:Toggl.Toggl.Workspace">
+            <summary>
+            Holds methods to access workspace information
+            </summary>
+        </member>
+    </members>
+</doc>

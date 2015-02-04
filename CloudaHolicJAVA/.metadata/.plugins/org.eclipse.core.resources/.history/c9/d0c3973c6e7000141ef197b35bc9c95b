@@ -1,0 +1,6 @@
+package com.Model;
+
+public class Team {
+	public String NAME { get; set; }
+    public List<User> USERS { get; set; }
+}

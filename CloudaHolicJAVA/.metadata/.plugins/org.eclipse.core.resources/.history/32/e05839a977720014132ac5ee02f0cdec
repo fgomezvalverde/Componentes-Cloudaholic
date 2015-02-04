@@ -1,0 +1,27 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class CloudaHolicMain extends HttpServlet implements Runnable
+{
+	Thread searcher;
+    public void init() throws ServletException
+    {
+          System.out.println("----------");
+          System.out.println("---------- CrunchifyExample Servlet Initialized successfully ----------");
+          System.out.println("----------");
+    }
+    public void run() {
+        long candidate = 2;
+
+        while (true) {     
+          candidate += 2;                    
+          try {
+            searcher.sleep(5000);
+          }
+          catch (InterruptedException ignored) { }
+          lastprime = 1;   
+        }
+      }
+}

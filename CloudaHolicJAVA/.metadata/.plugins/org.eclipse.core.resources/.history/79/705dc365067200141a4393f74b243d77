@@ -1,0 +1,38 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.Utiles.DatabaseQueue;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class MyServletContextListener implements ServletContextListener,Runnable {
+
+    private DatabaseQueue myThread = null;
+    private int SLEEP_THREAD = 50000;
+	private static String[] team = new String[]{"DOTEROS"};
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+    	
+        if ((myThread == null) || (!myThread.isAlive())) {
+            myThread = new DatabaseQueue();
+            myThread.start();
+        }
+    	new Thread(this).run();
+    }
+    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce){
+        try {
+            myThread.interrupt();
+        } catch (Exception ex) {
+        	
+        }
+    }
+
+	
+
+
+}

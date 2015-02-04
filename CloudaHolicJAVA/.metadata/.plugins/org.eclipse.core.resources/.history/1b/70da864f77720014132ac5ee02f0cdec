@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+	<servlet>
+		<servlet-name>CloudaHolic</servlet-name>
+		<servlet-class>com.CloudaHolic.CloudaHolicServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>WorkerReceiver</servlet-name>
+		<servlet-class>com.CloudaHolic.CloudaHolicWorkerReceiver</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>WorkerDatabase</servlet-name>
+		<servlet-class>com.CloudaHolic.CloudaHolicWorkerDatabase</servlet-class>
+	</servlet>
+	
+<servlet>
+    <servlet-name>Main</servlet-name>
+    <servlet-class>com.crunchify.tutorials.CrunchifyExample</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>CloudaHolic</servlet-name>
+		<url-pattern>/cloudaholic</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>WorkerReceiver</servlet-name>
+		<url-pattern>/workers/WorkerReceiver</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>WorkerDatabase</servlet-name>
+		<url-pattern>/workers/WorkerDatabase</url-pattern>
+	</servlet-mapping>
+	
+	<listener>
+       <listener-class>com.CloudaHolic.MyServletContextListener</listener-class>
+    </listener>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+</web-app>

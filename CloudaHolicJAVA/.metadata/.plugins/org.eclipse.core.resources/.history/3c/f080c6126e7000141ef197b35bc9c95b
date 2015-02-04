@@ -1,0 +1,17 @@
+package com.Model;
+
+public class User {
+	public String NAME;
+    public int FILES_UPLOADED ;    // bit bucket
+
+    public int HOME_WORKS;       //base camp
+
+    public int REGISTRED_HOUR; //togl
+
+    public int CHAT_HOURS;    //hipchat
+
+    public String DATE ;
+
+    public String MONTH;
+    public int TYPE ;
+}

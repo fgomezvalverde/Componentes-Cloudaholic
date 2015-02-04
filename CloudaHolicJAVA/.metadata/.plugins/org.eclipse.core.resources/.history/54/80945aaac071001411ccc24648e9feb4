@@ -1,0 +1,266 @@
+package com.Utiles;
+
+import com.Model.Team;
+import com.Model.User;
+import com.google.gdata.client.docs.DocsService;
+import com.google.gdata.client.spreadsheet.FeedURLFactory;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.BaseEntry;
+import com.google.gdata.data.PlainTextConstruct;
+import com.google.gdata.data.spreadsheet.CellEntry;
+import com.google.gdata.data.spreadsheet.CellFeed;
+import com.google.gdata.data.spreadsheet.ListEntry;
+import com.google.gdata.data.spreadsheet.ListFeed;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
+import com.google.gdata.data.spreadsheet.WorksheetEntry;
+import com.google.gdata.data.spreadsheet.WorksheetFeed;
+import com.google.gdata.util.AuthenticationException;
+import com.google.gdata.util.ServiceException;
+
+
+
+
+
+
+
+
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.net.URL;
+import java.util.Date;
+import java.util.List;
+/*
+ * 
+ * 	public void CopiarTabla(Team pTeam){
+		CrearSpreadSheet();
+		String[] columnas = new String[]{"NAME","FILES_UPLOADED","HOME_WORKS","REGISTRED_HOURS","CHAT_HOURS","MONTH","DATE"};
+		CrearWorkSheet("TEAM",pTeam.getUSERS().size(),columnas.length);
+		CrearEncabezado(columnas);
+		for(User actual : pTeam.getUSERS()){
+			String[] tupla = new String[]{actual.NAME,actual.FILES_UPLOADED+"",actual.HOME_WORKS+"",actual.REGISTRED_HOUR+"",
+					actual.CHAT_HOURS+"",actual.MONTH,actual.DATE};
+			AgregarTupla(columnas, tupla);
+		}
+	}
+ * 
+ */
+public class Doc {
+	private static String USERNAME="fafa.gttm91@gmail.com";
+	private static String PASSWORD="gomezvalverde5";
+	com.google.gdata.data.docs.SpreadsheetEntry spreadSheet;
+	WorksheetEntry worksheet;
+	DocsService  service;
+	
+	public static void main(String[] args){
+		//		
+	}
+	
+	public static void IniciarProceso(String[] tablas){
+		SpreadS.CrearSpreadSheet();
+		for (int i = 0; i < tablas.length; i++){
+	    	 SpreadS.CopiarTabla(tablas[i], i);	         
+	    }
+	}
+	
+	private static void CopiarTabla(String tabla,int numtabla){
+		DatosTabla tuplas=MySQL.ObtenerDatos(tabla);
+		if(numtabla>0){
+			CrearWorkSheet(tabla,tuplas.NumeroTuplas,tuplas.NumeroCol);
+		}else{
+			RenombrarWorkSheet(tabla,tuplas.NumeroTuplas,tuplas.NumeroCol);
+		}
+		SpreadS.CrearEncabezado(tuplas.NombreColumnas, numtabla);
+		for(Object[] tupla : tuplas.Datos){
+			SpreadS.AgregarTupla(tuplas.NombreColumnas, tupla, numtabla);
+		}
+	}
+	
+	private static void RenombrarWorkSheet(String nombretabla,int filas, int columnas){
+		try{
+		    SpreadsheetService  service = new SpreadsheetService ("MyDocumentsListIntegration-v1");
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    
+		    // Define the URL to request.  This should never change.
+		    URL SPREADSHEET_FEED_URL = new URL(
+		        "https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+
+		 // Make a request to the API and get all spreadsheets.
+		    SpreadsheetFeed feed = service.getFeed(SPREADSHEET_FEED_URL,
+		        SpreadsheetFeed.class);
+		    List<SpreadsheetEntry> spreadsheets = feed.getEntries();		    
+
+		    // TODO: Choose a spreadsheet more intelligently based on your
+		    // app's needs.		    
+		    SpreadsheetEntry spreadsheet = spreadsheets.get(0);		    
+		    
+		    WorksheetFeed worksheetFeed = service.getFeed(spreadsheet.getWorksheetFeedUrl(), WorksheetFeed.class);
+		    List<WorksheetEntry> worksheets = worksheetFeed.getEntries();
+		    WorksheetEntry worksheet = worksheets.get(0);
+
+		    // Update the local representation of the worksheet.
+		    worksheet.setTitle(new PlainTextConstruct(nombretabla));
+		    worksheet.setColCount(columnas);
+		    worksheet.setRowCount(filas+1);
+
+		    // Send the local representation of the worksheet to the API for
+		    // modification.
+		    worksheet.update();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private static void CrearWorkSheet(String nombretabla,int filas, int columnas){
+		try{
+		    SpreadsheetService  service = new SpreadsheetService ("MyDocumentsListIntegration-v1");
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    
+		    // Define the URL to request.  This should never change.
+		    URL SPREADSHEET_FEED_URL = new URL(
+		        "https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+
+		    // Make a request to the API and get all spreadsheets.
+		    SpreadsheetFeed feed = service.getFeed(SPREADSHEET_FEED_URL,SpreadsheetFeed.class);
+		    List<SpreadsheetEntry> spreadsheets = feed.getEntries();
+		    
+		    if (spreadsheets.size() == 0) {
+		      // TODO: There were no spreadsheets, act accordingly.
+		    }
+
+		    // TODO: Choose a spreadsheet more intelligently based on your
+		    // app's needs.
+		    SpreadsheetEntry spreadsheet = spreadsheets.get(0);		    
+		    //System.out.println(spreadsheet.getTitle().getPlainText());
+
+		    // Create a local representation of the new worksheet.
+		    WorksheetEntry worksheet = new WorksheetEntry();
+		    worksheet.setTitle(new PlainTextConstruct(nombretabla));
+		    worksheet.setColCount(columnas);
+		    worksheet.setRowCount(filas+1);
+
+		    // Send the local representation of the worksheet to the API for
+		    // creation.  The URL to use here is the worksheet feed URL of our
+		    // spreadsheet.
+		    URL worksheetFeedUrl = spreadsheet.getWorksheetFeedUrl();
+		    service.insert(worksheetFeedUrl, worksheet);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	private static void AgregarTupla(LinkedList<String> nombrecols, Object[] tupla,int numtabla){		
+		try{
+			SpreadsheetService  service = new SpreadsheetService ("MyDocumentsListIntegration-v1");
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    	
+		    URL SPREADSHEET_FEED_URL = new URL(
+		            "https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+		    
+		 // Make a request to the API and get all spreadsheets.
+		    SpreadsheetFeed feed = service.getFeed(SPREADSHEET_FEED_URL,
+		        SpreadsheetFeed.class);
+		    List<SpreadsheetEntry> spreadsheets = feed.getEntries();
+
+		    if (spreadsheets.size() == 0) {
+		      // TODO: There were no spreadsheets, act accordingly.
+		    }
+
+		    // TODO: Choose a spreadsheet more intelligently based on your
+		    // app's needs.
+		    SpreadsheetEntry spreadsheet = spreadsheets.get(0);
+		    //System.out.println(spreadsheet.getTitle().getPlainText());
+
+		    // Get the first worksheet of the first spreadsheet.
+		    // TODO: Choose a worksheet more intelligently based on your
+		    // app's needs.
+		    WorksheetFeed worksheetFeed = service.getFeed(
+		        spreadsheet.getWorksheetFeedUrl(), WorksheetFeed.class);
+		    List<WorksheetEntry> worksheets = worksheetFeed.getEntries();
+		    WorksheetEntry worksheet = worksheets.get(numtabla);
+
+		    // Fetch the list feed of the worksheet.
+		    URL listFeedUrl = worksheet.getListFeedUrl();
+		    ListFeed listFeed = service.getFeed(listFeedUrl, ListFeed.class);
+
+		    // Create a local representation of the new row.
+		    ListEntry row = new ListEntry();		 
+		    for(int i=0;i<nombrecols.size();i++){
+		    	row.getCustomElements().setValueLocal(nombrecols.get(i), tupla[i].toString());
+		    }		    		   
+
+		    // Send the new row to the API for insertion.
+		    row = service.insert(listFeedUrl, row);
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}		
+	}
+	
+	private static void CrearEncabezado(LinkedList<String> nombrecol,int numtabla){
+		
+		try{
+			SpreadsheetService  service = new SpreadsheetService ("MyDocumentsListIntegration-v1");
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    
+		    URL SPREADSHEET_FEED_URL = new URL(
+		            "https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+		    
+		    SpreadsheetFeed resultFeed= service.getFeed (SPREADSHEET_FEED_URL,
+		    SpreadsheetFeed.class);
+
+		    List <SpreadsheetEntry> spreadsheets= resultFeed.getEntries ();
+		    SpreadsheetEntry spreadsheetEntry= spreadsheets.get(0);
+
+		    URL worksheetFeedUrl= spreadsheetEntry.getWorksheetFeedUrl ();
+		    //log.severe (worksheetFeedUrl.toString ());
+		    WorksheetFeed worksheetFeed= service.getFeed (
+		    worksheetFeedUrl, WorksheetFeed.class);
+
+		    List <WorksheetEntry> worksheetEntrys= worksheetFeed.getEntries ();
+		    WorksheetEntry worksheetEntry= worksheetEntrys.get(numtabla);
+
+		    // Write header line into Spreadsheet
+		    URL cellFeedUrl= worksheetEntry.getCellFeedUrl ();
+		    CellFeed cellFeed= service.getFeed (cellFeedUrl,
+		    CellFeed.class);
+		    	  
+		    for(int i=1;i<=nombrecol.size();i++){
+		    	CellEntry cellEntry= new CellEntry (1, i, nombrecol.get(i-1));
+			    cellFeed.insert (cellEntry);
+		    }		    	  
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}		
+	}
+	
+	private static String CrearSpreadSheet(){
+		try{			
+		    DocsService  service = new DocsService ("MyDocumentsListIntegration-v1");
+		    service.setProtocolVersion(DocsService.Versions.V3);
+		    service.setUserCredentials(USERNAME, PASSWORD);
+		    
+		    // Define the URL to request.  This should never change.
+		    URL SPREADSHEET_FEED_URL = new URL(
+		    		"https://docs.google.com/feeds/default/private/full/");
+
+		    String title = new Date().toString();
+		    com.google.gdata.data.docs.SpreadsheetEntry  newEntry = new com.google.gdata.data.docs.SpreadsheetEntry ();
+		    newEntry.setTitle(new PlainTextConstruct(title));
+		    
+		    com.google.gdata.data.docs.SpreadsheetEntry spreadSheet =service.insert(SPREADSHEET_FEED_URL, newEntry);
+		    return title;
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
+}

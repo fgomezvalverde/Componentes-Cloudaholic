@@ -1,0 +1,29 @@
+package com.Database;
+
+public class Manager {
+	
+	private static Manager INSTANCE;
+	
+	public static Manager GetInstance()
+	{
+		if(INSTANCE == null)
+		{
+			INSTANCE = new Manager();
+		}
+		return INSTANCE;
+	}
+	
+	public void AddData(String pKey,String pValue)
+	{
+		Connector.GetInstance().GetDatabase().set(pKey, pValue);
+	}
+	public void SetData(String pKey,String pNewData)
+	{
+		Connector.GetInstance().GetDatabase().set(pKey, pNewData);
+	}
+	public String GetData(String pKey)
+	{
+		return Connector.GetInstance().GetDatabase().get(pKey);
+	}
+	
+}

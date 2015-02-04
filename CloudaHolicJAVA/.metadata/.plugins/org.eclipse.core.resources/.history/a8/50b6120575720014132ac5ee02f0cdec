@@ -1,0 +1,50 @@
+package com.Utiles;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServlet;
+
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class DatabaseQueue extends HttpServlet implements Runnable  {
+
+	private int SLEEP_THREAD = 50000;
+	private static String[] team = new String[]{"DOTEROS"};
+	private static Queue queue = QueueFactory.getDefaultQueue();
+	@Override
+	public void run() {
+		//Queue queue = QueueFactory.getDefaultQueue();
+		System.out.println(queue.getQueueName());
+		if(queue == null)
+		{
+			System.out.println("ESTA VACIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			queue.add();
+		}
+		for(;;)
+		{
+			
+			for(String temp : team)
+			{
+				queue.add();
+				System.out.println("HOLA\n");			
+				//queue.add(TaskOptions.Builder.withUrl("/workers/WorkerDatabase").param("team", temp));
+				//queue.addAsync(TaskOptions.Builder.withUrl("/workers/WorkerReceiver").param("json", "Asdsad"));
+			}
+			
+			
+			try {
+				System.out.println("Durmiendo thread");
+				Thread.sleep(SLEEP_THREAD);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+
+}

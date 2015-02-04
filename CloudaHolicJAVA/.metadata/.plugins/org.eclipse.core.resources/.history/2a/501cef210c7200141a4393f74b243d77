@@ -1,0 +1,58 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.Utiles.DatabaseQueue;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class MyServletContextListener implements ServletContextListener,Runnable {
+
+    private DatabaseQueue myThread = null;
+    private MyServletContextListener prueba;
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+    	
+        if ((myThread == null) || (!myThread.isAlive())) {
+            myThread = new DatabaseQueue();
+            myThread.start();
+        }
+
+    	
+    }
+    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce){
+        try {
+            myThread.interrupt();
+        } catch (Exception ex) {
+        	
+        }
+    }
+
+	@Override
+	public void run() {
+		Queue queue = QueueFactory.getDefaultQueue();
+		for(;;)
+		{
+
+				System.out.println("HOLA\n");
+				queue.add(TaskOptions.Builder.withUrl("/workers/WorkerDatabase").param("team", ""));			
+
+			try {
+				System.out.println("Durmiendo thread");
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	
+
+
+}

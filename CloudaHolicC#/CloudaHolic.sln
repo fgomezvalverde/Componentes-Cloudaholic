@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CloudaHolic", "CloudaHolic\CloudaHolic.ccproj", "{471707F9-9403-402F-8462-C8CB2C8BF34A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole1", "WorkerRole1\WorkerRole1.csproj", "{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", "ConfigurationManager\ConfigurationManager.csproj", "{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{79230330-AB7B-4318-B9E6-E10BBF849D94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toggl", "C--Toggl-Api-Client-master\Toggl\Toggl.csproj", "{AE43A30C-8515-41F2-A018-AA9AE9B80C27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{471707F9-9403-402F-8462-C8CB2C8BF34A}.Release|x86.ActiveCfg = Release|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1D088D62-DC4C-43B3-B244-C8C20AA42AD6}.Release|x86.ActiveCfg = Release|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9C317AD-1F5E-4BC4-96E6-3665BC5B85B0}.Release|x86.ActiveCfg = Release|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{79230330-AB7B-4318-B9E6-E10BBF849D94}.Release|x86.ActiveCfg = Release|Any CPU
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Debug|x86.ActiveCfg = Debug|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Debug|x86.Build.0 = Debug|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Release|Any CPU.ActiveCfg = Release|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Release|Mixed Platforms.Build.0 = Release|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Release|x86.ActiveCfg = Release|x86
+		{AE43A30C-8515-41F2-A018-AA9AE9B80C27}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\TransientFaultHandling.Core.5.1.1209.0\lib\NET4;packages\EnterpriseLibrary.WindowsAzure.TransientFaultHandling.5.1.1212.0\lib\NET4;packages\EnterpriseLibrary.WindowsAzure.TransientFaultHandling.5.1.1212.0\DesignTime
+	EndGlobalSection
+EndGlobal

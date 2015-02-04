@@ -1,0 +1,16 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+public class CloudaHolicMain extends HttpServlet
+{
+ 
+    public void init() throws ServletException
+    {
+          System.out.println("----------");
+          System.out.println("---------- CrunchifyExample Servlet Initialized successfully ----------");
+          System.out.println("----------");
+    }
+
+}

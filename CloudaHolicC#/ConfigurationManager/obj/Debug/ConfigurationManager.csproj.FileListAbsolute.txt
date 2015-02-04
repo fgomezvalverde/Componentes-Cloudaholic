@@ -1,0 +1,15 @@
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\ConfigurationManager.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\ConfigurationManager.pdb
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\log4net-loggly.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\log4net.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Model.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Newtonsoft.Json.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Model.pdb
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\log4net.xml
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Newtonsoft.Json.xml
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\obj\Debug\ConfigurationManager.csprojResolveAssemblyReference.cache
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\obj\Debug\ConfigurationManager.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\obj\Debug\ConfigurationManager.pdb
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Toggl.dll
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Toggl.pdb
+E:\Proyectos\C#\CloudaHolic\ConfigurationManager\bin\Debug\Toggl.xml

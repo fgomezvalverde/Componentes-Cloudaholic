@@ -1,0 +1,16 @@
+package com.Utiles;
+
+public class LogglyManager {
+	private static LogglyManager INSTANCE;
+
+	public static LogglyManager GetIntance()
+	{
+		if(INSTANCE == null)
+		{
+			INSTANCE = new LogglyManager();
+			
+		}
+		return INSTANCE;
+	}
+	
+}

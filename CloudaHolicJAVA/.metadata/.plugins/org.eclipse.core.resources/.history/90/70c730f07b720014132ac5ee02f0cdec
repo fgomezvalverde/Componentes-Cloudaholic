@@ -1,0 +1,22 @@
+package com.CloudaHolic;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class CloudaHolicServletDatabase {
+	
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String team_name =req.getParameter("name");
+		/*resp.setContentType("text/plain");
+		String prueba = req.getParameter("json");
+		resp.getWriter().println("LLEGO TODO  "+ prueba);*/
+		QueueFactory.getDefaultQueue().add(
+		        TaskOptions.Builder.withUrl"/workers/WorkerDatabase").param("team", temp));
+		resp.getWriter().println("BIEN");
+	}
+}

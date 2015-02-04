@@ -1,0 +1,42 @@
+package com.CloudaHolic;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.*;
+
+import org.json.simple.JSONValue;
+
+import com.Utiles.Doc;
+import com.google.gdata.util.ServiceException;
+import com.Model.*;
+
+
+@SuppressWarnings("serial")
+public class CloudaHolicWorkerReceiver extends HttpServlet {
+	
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String json_team = req.getParameter("json");
+		//Team team = (Team)JSONValue.parse(json_team);
+		
+		//Manager.GetInstance().AddData(team.NAME,json_team );
+		
+		
+		/*List<User> users = new ArrayList();
+		users.add(new User("Fabian",5,33,22,12,"12/05/2014","Mayo",5));
+		users.add(new User("Irene",22,1,72,2,"04/09/2019","Junio",5));
+		Doc.CopiarTabla(new Team("Doteros",users));*/
+
+			
+		
+		System.out.println("RASTA");
+		
+		
+	}
+
+	
+}

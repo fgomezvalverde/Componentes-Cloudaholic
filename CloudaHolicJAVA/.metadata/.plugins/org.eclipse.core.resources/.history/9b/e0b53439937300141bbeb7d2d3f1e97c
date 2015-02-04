@@ -1,0 +1,20 @@
+package com.CloudaHolic;
+import java.io.IOException;
+import javax.servlet.http.*;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+@SuppressWarnings("serial")
+public class CloudaHolicServlet extends HttpServlet {
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		
+		/*resp.setContentType("text/plain");
+		String prueba = req.getParameter("json");
+		resp.getWriter().println("LLEGO TODO  "+ prueba);*/
+		QueueFactory.getDefaultQueue().add(
+		        TaskOptions.Builder.withUrl("/workers/WorkerReceiver")
+		          .param("json", req.getParameter("json")));
+		resp.getWriter().println("BIEN");
+	}
+}

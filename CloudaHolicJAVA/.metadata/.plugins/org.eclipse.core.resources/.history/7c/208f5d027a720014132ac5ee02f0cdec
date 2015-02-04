@@ -1,0 +1,63 @@
+package com.CloudaHolic;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class CloudaHolicMain extends HttpServlet implements Runnable
+{
+	Thread searcher;
+	private int SLEEP_THREAD = 50000;
+	private static String[] team = new String[]{"DOTEROS"};
+	private static Queue queue;
+    public void init() throws ServletException
+    {
+    	searcher = new Thread(this);
+        searcher.setPriority(Thread.MIN_PRIORITY);
+        searcher.start();
+        queue = QueueFactory.getDefaultQueue();
+    }
+    
+    
+    public void run() {
+    	System.out.println(queue.getQueueName());
+		for(;;)
+		{
+			
+			for(String temp : team)
+			{
+				if(queue == null)
+				{
+					queue = QueueFactory.getDefaultQueue();
+				}
+				
+				System.out.println("HOLA\n");			
+				queue.add(TaskOptions.Builder.withUrl("/workers/WorkerDatabase").param("team", temp));
+				//queue.addAsync(TaskOptions.Builder.withUrl("/workers/WorkerReceiver").param("json", "Asdsad"));
+			}
+			
+			
+			try {
+				System.out.println("Durmiendo thread");
+				Thread.sleep(SLEEP_THREAD);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+      }
+    public void destroy() {
+        searcher.stop();
+      }
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+    	
+    }
+}

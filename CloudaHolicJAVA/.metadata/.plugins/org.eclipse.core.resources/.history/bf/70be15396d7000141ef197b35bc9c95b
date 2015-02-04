@@ -1,0 +1,21 @@
+package com.Database;
+
+public class Connector {
+
+	private String HOST;
+	private int PORT;
+	private static Connector INSTANCE;
+	
+	private Connector()
+	{}
+	
+	public static Connector GetInstance()
+	{
+		if(INSTANCE==null)
+		{
+			INSTANCE = new Connector();
+			
+		}
+		return INSTANCE;
+	}
+}

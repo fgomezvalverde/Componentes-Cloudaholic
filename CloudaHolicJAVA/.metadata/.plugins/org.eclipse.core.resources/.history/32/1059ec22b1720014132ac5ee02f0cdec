@@ -1,0 +1,26 @@
+package com.CloudaHolic;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.Database.Manager;
+
+public class CloudaHolicWorkerDatabase extends HttpServlet {
+	
+
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String team_name = req.getParameter("team");
+		System.out.println("\nllegando Database"+ team_name+"\n");
+		
+		Manager.GetInstance().GetData(team_name);
+		JSONArray msg = (JSONArray) jsonObject.get("messages");
+		Doc.
+		
+	}
+	
+}

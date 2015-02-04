@@ -1,0 +1,44 @@
+package com.CloudaHolic;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+import com.Utiles.DatabaseQueue;
+import com.google.appengine.api.taskqueue.Queue;
+import com.google.appengine.api.taskqueue.QueueFactory;
+import com.google.appengine.api.taskqueue.TaskOptions;
+
+public class MyServletContextListener implements ServletContextListener,Runnable {
+
+    private DatabaseQueue myThread = null;
+    private MyServletContextListener prueba;
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+    	
+        /*if ((myThread == null) || (!myThread.isAlive())) {
+            myThread = new DatabaseQueue();
+            myThread.start();
+        }*/
+    	prueba = new MyServletContextListener();
+    	
+    }
+    
+    @Override
+    public void contextDestroyed(ServletContextEvent sce){
+        try {
+            myThread.interrupt();
+        } catch (Exception ex) {
+        	
+        }
+    }
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+
+}
